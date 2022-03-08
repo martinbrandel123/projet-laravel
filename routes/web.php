@@ -1,4 +1,7 @@
 <?php
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -13,20 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'homepage';
-});
 
-Route::get('/product', function () {
-    return 'liste des produits';
-});
+Route::get('/', [HomeController::class, 'show']);
 
+Route::get('/product', [ProductController::class, 'show']);
 
-Route::get('/product/0', function () {
-    return 'Fiche du produit 0';
-});
+Route::get('/product/{id}/', [ProductController::class, 'show_id']);
 
-Route::get('/product/0/cart', function () {
-    return 'panier';
-});
+Route::get('/cart', [CartController::class, 'show']);
 
