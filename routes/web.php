@@ -2,6 +2,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,11 @@ Route::get('/product', [ProductController::class, 'show']);
 Route::get('/product/{id}/', [ProductController::class, 'show_id']);
 
 Route::get('/cart', [CartController::class, 'show']);
+
+
+Route::get('/test', [TestController::class, 'show_product_view']);
+Route::get('/test/{id}', [TestController::class, 'show_selected_product_view']);
+
+
+
 
