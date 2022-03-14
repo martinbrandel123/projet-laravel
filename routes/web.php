@@ -31,5 +31,10 @@ Route::get('/test', [TestController::class, 'show_product_view']);
 Route::get('/test/{id}', [TestController::class, 'show_selected_product_view']);
 
 
+Route::get('/order_name', [TestController::class, 'show_product_order_by_name']);
+Route::get('/order_price', [TestController::class, 'show_product_order_by_price']);
+Route::get('/display_products', [TestController::class, 'display_products_price_name']);
+
+
 
 

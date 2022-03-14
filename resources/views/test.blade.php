@@ -5,9 +5,7 @@
         <link rel="stylesheet" href="app.css">
     @endsection
 
-    
     @section('content')
-
         @foreach ($products as $product )
             <div class="card">
                 <a href="/test/{{$product->id}}">
