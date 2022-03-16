@@ -1,10 +1,8 @@
 <?php
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TestController;
 
+use App\Http\Controllers\BackOfficeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +16,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [HomeController::class, 'show']);
-
-Route::get('/product', [ProductController::class, 'show']);
-
-Route::get('/product/{id}/', [ProductController::class, 'show_id']);
-
-Route::get('/cart', [CartController::class, 'show']);
 
 
-Route::get('/test', [TestController::class, 'show_product_view']);
-Route::get('/test/{id}', [TestController::class, 'show_selected_product_view']);
+//display product
+Route::get('/backoffice',[BackOfficeController::class, 'index']);
+Route::get('/backoffice/product/{id}/show',[BackOfficeController::class, 'displayProduct']);
 
+//display edit & update
+Route::get('/backoffice/product/{id}/edit',[BackOfficeController::class, 'edit']);
+Route::put('/backoffice/{id}',[BackOfficeController::class, 'update']);
+//Route::put('/backoffice/{id}',[BackOfficeController::class, 'update']);
 
-Route::get('/order_name', [TestController::class, 'show_product_order_by_name']);
-Route::get('/order_price', [TestController::class, 'show_product_order_by_price']);
-Route::get('/display_products', [TestController::class, 'display_products_price_name']);
+//create 
+Route::get('/backoffice/product/create', [BackOfficeController::class, 'editCreate']);
+Route::post('/backoffice',[BackOfficeController::class, 'create']);
+Route::post('/backoffice', [BackOfficeController::class, 'create']);
+
+//delete
+Route::delete('/backoffice/product/{id}/delete', [BackOfficeController::class, 'destroy']);
+
 
 
 
