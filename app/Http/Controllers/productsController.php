@@ -21,7 +21,11 @@ class ProductsController extends Controller
 
     public function displayProduct($id)
     {        
-
+        $order = Order::find($id);
+        foreach($order->products as $product) 
+        {
+            dd($product->pivot);
+        }
         $product = Product::find($id);
 
         return view('products.product', [
