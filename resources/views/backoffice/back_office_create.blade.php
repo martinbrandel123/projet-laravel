@@ -1,4 +1,4 @@
-@extends('backoffice.main_template')
+@extends('main_template')
 
 @section('content')
 <form action="/backoffice" method="post">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackOfficeController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
 
 
 //display product
@@ -25,17 +30,32 @@ Route::get('/backoffice/product/{id}/show',[BackOfficeController::class, 'displa
 //display edit & update
 Route::get('/backoffice/product/{id}/edit',[BackOfficeController::class, 'edit']);
 Route::put('/backoffice/{id}',[BackOfficeController::class, 'update']);
+Route::put('/backoffice',[BackOfficeController::class, 'displayBackofficeAfterUpDate']);
+
 //Route::put('/backoffice/{id}',[BackOfficeController::class, 'update']);
 
 //create 
 Route::get('/backoffice/product/create', [BackOfficeController::class, 'editCreate']);
 Route::post('/backoffice',[BackOfficeController::class, 'create']);
-Route::post('/backoffice', [BackOfficeController::class, 'create']);
 
 //delete
 Route::delete('/backoffice/product/{id}/delete', [BackOfficeController::class, 'destroy']);
 
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
+//////////////BACKOFFICE //////////////////
 
 
 
+//////////////CATALOGUE  //////////////////
+//////////////CATALOGUE  //////////////////
+//////////////CATALOGUE  //////////////////
+//////////////CATALOGUE  //////////////////
 
+Route::get('/products',[ProductsController::class, 'displayCatalogue']);
+
+Route::get('/product/{id}',[ProductsController::class, 'displayProduct']);
+
+Route::post('/product/{id}',[ProductsController::class, 'getProductData']);
