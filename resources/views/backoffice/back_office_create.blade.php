@@ -1,9 +1,16 @@
 @extends('main_template')
 
 @section('content')
-<form action="/backoffice" method="post">
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="text-red">{{$error}}</div>
+        @endforeach
+    @endif
+
+<form action="/backoffice" method="post">
         @csrf
+
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="name" name="name">
     </div>

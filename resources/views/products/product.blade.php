@@ -5,22 +5,19 @@
 @endsection
 @section('content')
 
-{{-- @foreach ($orders as $order)
-   <h1>{{$order->customer->last_name}}</h1>
-@endforeach 
-
-
-@foreach ($customers as $customer)
-  @foreach ($customer->orders as $order)
-      @dump($order->number)
-  @endforeach
-@endforeach --}}
+    @if ($errors->any())
+      @foreach ($errors->all() as $error)
+        <div class="text-red-500">{{$error}}</div>
+      @endforeach
+    @endif
 
 <form action="/product/{{$product->id}}" method="POST">
-    @csrf
+      @csrf
     <div class="card" style="width: 18rem;">
         <div class="img_height">
-            <img src="{{$product->image}}" class="card-img-top" alt="...">
+            @if ($product->image != null)
+              <img src="/{{$product->image}}" class="card-img-top" alt="...">
+            @endif
         </div>
         <div class="card-body">
           <h5 class="card-title">{{$product->name}}</h5>

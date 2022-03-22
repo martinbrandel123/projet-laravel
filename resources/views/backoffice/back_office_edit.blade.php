@@ -2,8 +2,14 @@
 
 @section('content')
 
+@if ($errors->any())
+@foreach ($errors->all() as $error)
+    <div class="text-red">{{$error}}</div>
+@endforeach
+@endif
+
     <div class="card" style="width: 18rem;margin: 0 auto;">
-        <img src="{{$products->image}}" class="card-img-top" alt="">
+        <img src="/{{$products->image}}" class="card-img-top" alt="">
         <div class="card-body">
             <form action="/backoffice/{{$id}}" method="POST">
                 {{method_field('PUT')}}
@@ -20,8 +26,6 @@
             </form>
 
                 <a href="/backoffice" class="btn btn-primary">backoffice</a>
-
-
         </div>
       </div><br>
 @endsection

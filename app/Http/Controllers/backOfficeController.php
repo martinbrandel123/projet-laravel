@@ -37,8 +37,20 @@ class BackOfficeController extends Controller
 
     public function create(Request $request)
     {   
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+            'quantity' => 'required',
+            'weight' => 'required',
+            'available' => 'required',
+            'discount' => 'required',
+            'category_id' => 'required',
+        ]);
+
+
        // $products = Product::all();
-       dd($request->discount);
         $product = new Product;
         $product->name = $request->name;
         $product->description = $request->description;
@@ -86,14 +98,17 @@ class BackOfficeController extends Controller
      */
     public function update(Request $request, $id)
     {   
+
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|integer|min:0',
+        ]);
+
         $product = Product::find($id);
-        dd($product);
         $product->name = $request->name;
         $product->price = $request->price;
         $product->save();
-        $products = Product::all();
-        return redirect('/backoffice/product/'.$id.'/edit');
-    //    return view('backoffice.after_update', ['products' => $products]);
+        return redirect('backoffice');
     }
 
     /**

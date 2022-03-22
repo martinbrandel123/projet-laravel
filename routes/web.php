@@ -48,7 +48,6 @@ Route::delete('/backoffice/product/{id}/delete', [BackOfficeController::class, '
 //////////////BACKOFFICE //////////////////
 
 
-
 //////////////CATALOGUE  //////////////////
 //////////////CATALOGUE  //////////////////
 //////////////CATALOGUE  //////////////////
@@ -59,3 +58,4 @@ Route::get('/products',[ProductsController::class, 'displayCatalogue']);
 Route::get('/product/{id}',[ProductsController::class, 'displayProduct']);
 
 Route::post('/product/{id}',[ProductsController::class, 'getProductData']);
+

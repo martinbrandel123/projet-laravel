@@ -8,7 +8,10 @@
     @foreach ($products as $product)
     <div class="card" style="width: 18rem;">
         <div class="img_height">
-            <img src="{{$product->image}}" class="card-img-top" alt="...">
+          @if ($product->image != null)
+              <img src="/{{$product->image}}" class="card-img-top" alt="...">
+          @endif
+
         </div>
         <div class="card-body">
           <h5 class="card-title">{{$product->name}}</h5>

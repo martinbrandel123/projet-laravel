@@ -18,27 +18,21 @@ class ProductsController extends Controller
             'products' => $products
         ]);
     }
-
     public function displayProduct($id)
     {        
-        $order = Order::find($id);
-        foreach($order->products as $product) 
-        {
-            dd($product->pivot);
-        }
         $product = Product::find($id);
-
         return view('products.product', [
             'product' => $product,
             'id' => $id,
         ]);
     }
-
-
     public function getProductData(Request $request, $id) 
     {
-        $quantity = $request->quantity;
-       // dd($request->quantity);
-        return redirect('product/'.$id);
+        $product = Product::find($id);
+        dd($product->orders[0]->pivot);
+        $request->validate([
+            'quantity' => "required|integer|min:0|max:$product->quantity",
+        ]);
+        return view('products.panier');
     }
 }

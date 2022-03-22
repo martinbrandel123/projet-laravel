@@ -3,7 +3,9 @@
 @section('content')
 
     <div class="card" style="width: 18rem;margin: 0 auto;">
-        <img src="{{$products->image}}" class="card-img-top" alt="...">
+    
+                   <img src="/{{$products->image}}" class="card-img-top" alt="...">  
+
         <div class="card-body">
             <h5>{{$products->name}}</h5>
             <p>{{$products->id}}</p>
